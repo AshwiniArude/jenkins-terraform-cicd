@@ -1,0 +1,11 @@
+.git
+.venv
+__pycache__
+reports
+tests
+terraform
+docs
+screenshots
+scripts
+*.md
+Jenkinsfile

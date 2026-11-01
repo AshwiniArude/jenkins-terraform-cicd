@@ -1,0 +1,23 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+reports/
+.coverage
+.pytest_cache/
+
+# Terraform - never commit state, keys or real variable values
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/.terraform.lock.hcl
+terraform/terraform.tfvars
+terraform/*.pem
+*.pem
+crash.log
+
+# Local
+.vscode/
+.DS_Store
+Thumbs.db
+~$*.docx

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shipment Tracker</title>
+  <style>
+    :root { --bg:#f4f6f8; --card:#fff; --ink:#1d2733; --muted:#5b6876; --accent:#1f6feb; --ok:#1a7f37; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+    header { background:#0d1b2a; color:#fff; padding:24px 16px; }
+    header h1 { margin:0 0 6px; font-size:26px; }
+    header p { margin:0; color:#c9d4df; }
+    main { max-width:900px; margin:24px auto; padding:0 16px; }
+    .badges { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:20px; }
+    .badge { background:var(--card); border:1px solid #d8dee4; border-radius:8px; padding:10px 14px; }
+    .badge b { display:block; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.04em; }
+    .badge span { font-size:18px; font-weight:600; }
+    .build span { color:var(--accent); }
+    .ok span { color:var(--ok); }
+    table { width:100%; border-collapse:collapse; background:var(--card); border-radius:8px; overflow:hidden; }
+    th, td { text-align:left; padding:10px 12px; border-bottom:1px solid #e6eaee; font-size:14px; }
+    th { background:#eef2f6; }
+    footer { text-align:center; color:var(--muted); font-size:13px; margin:24px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Shipment Tracker</h1>
+    <p>{{ message }}</p>
+  </header>
+  <main>
+    <div class="badges">
+      <div class="badge build"><b>Jenkins build</b><span>#{{ build }}</span></div>
+      <div class="badge"><b>App version</b><span>{{ version }}</span></div>
+      <div class="badge ok"><b>Status</b><span>UP</span></div>
+      <div class="badge"><b>Container</b><span>{{ hostname }}</span></div>
+    </div>
+    <table>
+      <thead><tr><th>ID</th><th>Origin</th><th>Destination</th><th>Mode</th><th>Status</th></tr></thead>
+      <tbody>
+      {% for s in shipments %}
+        <tr><td>{{ s.id }}</td><td>{{ s.origin }}</td><td>{{ s.destination }}</td><td>{{ s.mode }}</td><td>{{ s.status }}</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </main>
+  <footer>Deployed by Jenkins pipeline &middot; Infrastructure provisioned by Terraform</footer>
+</body>
+</html>
