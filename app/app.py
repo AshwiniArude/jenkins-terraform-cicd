@@ -16,7 +16,7 @@ from flask import Flask, jsonify, render_template, request
 
 APP_VERSION = "1.0.0"
 # Change this line during the video demo, commit + push, and Jenkins redeploys it automatically.
-WELCOME_MESSAGE = "Hello from Ashwini - deployed automatically by Jenkins"
+WELCOME_MESSAGE = "Hello from Ashwini - deployed automatically by Jenkins 2.0"
 
 VALID_MODES = {"SEA", "AIR", "ROAD"}
 
